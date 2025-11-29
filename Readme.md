@@ -1,4 +1,4 @@
-# 🧬 LLM & Mamba Architecture Explorer
+# 🧬 Transformer & Mamba Architecture Explorer
 
 > **"What I cannot create, I do not understand."** — Richard Feynman
 
@@ -31,7 +31,7 @@ pip install -r requirements.txt
 ```
 
 
-###. 2. 生成可视化素材 (Manim)
+### 2. 生成可视化素材 (Manim)
 本项目依赖 Manim 生成原理视频。请运行以下命令生成素材并移动到资源目录：
 code
 ```Bash
