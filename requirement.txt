@@ -1,0 +1,6 @@
+streamlit
+manim
+torch
+numpy
+plotly
+pandas

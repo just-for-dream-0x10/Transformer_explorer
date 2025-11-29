@@ -1,0 +1,12 @@
+__pycache__
+
+media/**
+
+**/media/**
+
+# Streamlit
+.streamlit/
+
+# Environment
+venv/
+.env
