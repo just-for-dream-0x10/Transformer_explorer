@@ -10,3 +10,5 @@ media/**
 # Environment
 venv/
 .env
+
+.DS_Store
