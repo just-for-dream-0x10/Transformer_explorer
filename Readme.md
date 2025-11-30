@@ -12,11 +12,24 @@
 ## 📚 核心功能
 
 1.  **Manim 动画影院**：
-    *   Transformer Attention (点积与 Softmax)
-    *   Encoder (多头与残差) & Decoder (因果掩码)
-    *   Cross-Attention (编解码协作)
-    *   **Mamba 核心 (选择性扫描机制)**
-    *   复杂度对比 ($O(L^2)$ vs $O(L)$)
+    *   **Transformer 核心组件**:
+        *   [Encoder Flow (编码器流)](./assets/EncoderFlow.mp4)
+        *   [Decoder Masking (解码器掩码)](./assets/DecoderMasking.mp4)
+        *   [Cross Attention (交叉注意力)](./assets/CrossAttentionFlow.mp4)
+        *   [Multi-Head Attention (多头注意力)](./assets/MultiHeadDetailed.mp4)
+        *   [Positional Encoding (位置编码)](./assets/PositionalEncoding.mp4)
+        *   [Residual & Norm (残差与归一化)](./assets/ResidualNorm.mp4)
+        *   [FFN & SwiGLU (前馈网络)](./assets/FFNSwiGLU.mp4)
+    *   **Mamba & SSM**:
+        *   [Mamba Mechanism (Mamba 机制)](./assets/MambaMechanism.mp4)
+        *   [Transformer vs Mamba (架构对比)](./assets/TransformerVsMamba.mp4)
+        *   [Discretization (离散化)](./assets/DiscretizationVisual.mp4)
+    *   **训练与优化**:
+        *   [AdamW Optimizer (优化器)](./assets/AdamWOptimizer.mp4)
+        *   [BPE Tokenization (分词)](./assets/BPEDetailed.mp4)
+        *   [Mixed Precision (混合精度)](./assets/MixedPrecision.mp4)
+        *   [RoPE Math (旋转位置编码)](./assets/RoPEMath.mp4)
+        *   [Training Loss (训练损耗)](./assets/TrainingLoss.mp4)
 2.  **交互式实验室**：
     *   手动输入文本，查看 Embedding/Q/K/V 矩阵数值。
     *   **Mamba 递归模拟器**：亲手调整参数，观察隐状态 $h_t$ 的演变。
@@ -64,7 +77,6 @@ streamlit run app.py
 app.py: Streamlit 主程序 (交互界面)
 scene_*.py: Manim 动画脚本 (数学原理可视化)
 assets/: 存放生成的 MP4 视频资源
-notes/: 深度学习数学笔记
 ```
 
 🧠 致谢
