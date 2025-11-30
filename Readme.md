@@ -1,88 +1,113 @@
-# 🧬 Transformer & Mamba Architecture Explorer
+# Transformer & Mamba 架构可视化项目
 
-> **"What I cannot create, I do not understand."** — Richard Feynman
+基于数学原理的深度学习架构解析工具，通过动画演示和交互式实验帮助理解 Transformer 和 Mamba (SSM) 的核心机制。
 
-这是一个深度学习可视化项目，旨在通过 **交互式推导 (Streamlit)** 与 **数学原理动画 (Manim)**，深度解构 Transformer 与 Mamba (SSM) 的核心机制。
+项目包含：[配套学习笔记](https://github.com/just-for-dream-0x10/beginML/tree/master/other/Self-Attention)
 
-附录一个我们团队做的一个[笔记库](https://github.com/just-for-dream-0x10/beginML/tree/master/other/Self-Attention)
+## 项目功能
 
+### 1. 动画演示模块
+使用 Manim 生成的数学原理动画，涵盖以下主题：
 
-![Demo](./images/video.png)
+**Transformer 核心组件**
+- Encoder 编码器流程：多头拆分、自注意力计算、残差连接
+- Decoder 解码器：因果掩码机制、自回归生成
+- Cross Attention：编码器-解码器交互机制
+- Multi-Head Attention：多头注意力权重分配与计算
+- Positional Encoding：正弦位置编码原理
+- Residual & Norm：残差连接与层归一化
+- FFN & SwiGLU：前馈网络与门控激活函数
 
-## 📚 核心功能
+**Mamba 状态空间模型**
+- Mamba 选择性机制：动态参数生成与状态更新
+- 离散化过程：连续系统到离散递归的转换
+- Transformer vs Mamba：架构对比与复杂度分析
 
-1.  **Manim 动画影院**：
-    *   **Transformer 核心组件**:
-        *   [Encoder Flow (编码器流)](./assets/EncoderFlow.mp4)
-        *   [Decoder Masking (解码器掩码)](./assets/DecoderMasking.mp4)
-        *   [Cross Attention (交叉注意力)](./assets/CrossAttentionFlow.mp4)
-        *   [Multi-Head Attention (多头注意力)](./assets/MultiHeadDetailed.mp4)
-        *   [Positional Encoding (位置编码)](./assets/PositionalEncoding.mp4)
-        *   [Residual & Norm (残差与归一化)](./assets/ResidualNorm.mp4)
-        *   [FFN & SwiGLU (前馈网络)](./assets/FFNSwiGLU.mp4)
-    *   **Mamba & SSM**:
-        *   [Mamba Mechanism (Mamba 机制)](./assets/MambaMechanism.mp4)
-        *   [Transformer vs Mamba (架构对比)](./assets/TransformerVsMamba.mp4)
-        *   [Discretization (离散化)](./assets/DiscretizationVisual.mp4)
-    *   **训练与优化**:
-        *   [AdamW Optimizer (优化器)](./assets/AdamWOptimizer.mp4)
-        *   [BPE Tokenization (分词)](./assets/BPEDetailed.mp4)
-        *   [Mixed Precision (混合精度)](./assets/MixedPrecision.mp4)
-        *   [RoPE Math (旋转位置编码)](./assets/RoPEMath.mp4)
-        *   [Training Loss (训练损耗)](./assets/TrainingLoss.mp4)
-2.  **交互式实验室**：
-    *   手动输入文本，查看 Embedding/Q/K/V 矩阵数值。
-    *   **Mamba 递归模拟器**：亲手调整参数，观察隐状态 $h_t$ 的演变。
-3.  **硬核笔记**：包含从数学推导到工程实现的完整文档。
+**训练与优化技术**
+- AdamW 优化器：解耦权重衰减机制
+- BPE 分词：字节对编码算法原理
+- 混合精度训练：FP16/BF16 训练策略
+- RoPE 旋转位置编码：相对位置编码机制
+- 训练损失函数：交叉熵与梯度优化
 
-## 🛠️ 安装与运行
+### 2. 交互式实验平台
+基于 Streamlit 的 Web 应用，提供以下交互功能：
 
+**参数调节实验室**
+- 文本输入与 Token 化处理
+- Transformer 参数配置：嵌入维度、多头数量
+- Mamba 参数设置：状态维度、选择性参数
+- 训练超参数：学习率、温度采样
 
-### 1. 安装依赖
+**数学计算可视化**
+- Attention 完整计算过程展示
+- Softmax 温度调节效果演示
+- 位置编码热力图可视化
+- 多头注意力权重分布
+- FFN 维度变换过程
+
+**模型行为分析**
+- 注意力模式分析（局部/全局/因果）
+- 层级特征演化追踪
+- 参数量对比分析
+- 计算复杂度对比（Transformer vs Mamba）
+
+### 3. 训练优化实验
+- 学习率调度策略对比（Warmup + Cosine Decay、Step Decay、Exponential Decay）
+- 优化器性能对比（SGD、Adam、AdamW、Lion）
+- 混合精度训练效果分析
+- 损失函数行为分析与过拟合检测
+
+## 安装与使用
+
+### 环境要求
+- Python 3.8+
+- FFmpeg（用于 Manim 视频渲染）
+
+### 安装步骤
+
+1. **安装依赖包**
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt
+```
+
+2. **生成动画视频**（可选）
+```bash
+chmod +x generate_all_videos.sh
+
+./generate_all_videos.sh
 ```
 
 
-### 2. 生成可视化素材 (Manim)
-本项目依赖 Manim 生成原理视频。请运行以下命令生成素材并移动到资源目录：
-code
-```Bash
-# 生成基础注意力
-manim -ql scene.py AttentionMechanism
-
-# 生成架构流
-manim -ql scene_struct.py EncoderFlow
-manim -ql scene_struct.py DecoderMasking
-
-# 生成协作机制
-manim -ql scene_cross_attn.py CrossAttentionFlow
-
-# 生成对比与 Mamba
-manim -ql scene_compare.py TransformerVsMamba
-manim -ql scene_mamba_core.py MambaMechanism
-```
-⚠️ 重要：Manim 默认输出在 media/videos/...，请将生成的 .mp4 文件手动复制到项目根目录的 assets/ 文件夹中。
-
-3. 启动交互式 App
-
-```Bash
+3. **启动交互应用**
+```bash
 streamlit run app.py
 ```
 
-![app](./images/app.png)
-
-📂 目录结构
+### 项目结构
 ```
-app.py: Streamlit 主程序 (交互界面)
-scene_*.py: Manim 动画脚本 (数学原理可视化)
-assets/: 存放生成的 MP4 视频资源
+Transformer_Explorer/
+├── app.py                 # Streamlit 主应用
+├── scene/                 # Manim 动画脚本
+│   ├── scene_struct.py    # Transformer 架构
+│   ├── scene_mamba_core.py # Mamba 机制
+│   ├── scene_*.py         # 其他主题动画
+├── assets/                # 视频资源文件
+├── media/                 # Manim 输出目录
+└── requirement.txt        # 项目依赖
 ```
 
-🧠 致谢
-3Blue1Brown (Manim 引擎)
+## 技术实现
 
-FlashAttention & Mamba 论文作者
+- **动画引擎**：Manim - 数学动画生成工具
+- **交互框架**：Streamlit - Web 应用框架
+- **数值计算**：NumPy, PyTorch
+- **数据可视化**：Plotly, Pandas
 
----
+## 参考文献
+
+- "Attention Is All You Need" (Vaswani et al., 2017)
+- "Mamba: Linear-Time Sequence Modeling with Selective State Spaces" (Gu & Dao, 2023)
+- "Rotary Position Embedding" (Su et al., 2021)
+- "AdamW: Decoupled Weight Decay Regularization" (Loshchilov & Hutter, 2019)
 

@@ -85,7 +85,7 @@ with st.sidebar:
     temperature = st.slider("Temperature (采样)", 0.1, 2.0, 1.0, 0.1)
 
     st.markdown("---")
-    st.caption("© 2025 Transformer Explorer | Powered by Manim & Streamlit")
+    st.caption("© 2025 Transformer Explorer  Powered by Manim & Streamlit Author: @Just For Dream Team")
 
 # ==========================================
 # 主界面：四大核心板块
