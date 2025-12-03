@@ -10,8 +10,8 @@ import pandas as pd
 # 页面全局配置
 # ==========================================
 st.set_page_config(
-    page_title="Transformer & Mamba 深度解析",
-    page_icon="🧠",
+    page_title="Transformer架构学习平台 - 深度解析神经网络架构",
+    page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -42,8 +42,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.title("🤖 Transformer vs 🐍 Mamba：核心机制全景透视")
-st.markdown("### 从直观动画到硬核数学：深度学习架构完全解析")
+st.title("🤖 Transformer架构学习平台")
+st.markdown("### 深度解析神经网络架构：从Transformer到Mamba的完整学习之旅")
+st.markdown("**交互式学习工具** - 通过可视化、动画和实践深入理解现代AI架构的核心原理")
 
 # ==========================================
 # 侧边栏：参数控制台
@@ -85,7 +86,7 @@ with st.sidebar:
     temperature = st.slider("Temperature (采样)", 0.1, 2.0, 1.0, 0.1)
 
     st.markdown("---")
-    st.caption("© 2025 Transformer Explorer  Powered by Manim & Streamlit Author: @Just For Dream Team")
+    st.caption("© 2025 Transformer架构学习平台 | 深度学习教学工具")
 
 # ==========================================
 # 主界面：四大核心板块
@@ -932,6 +933,6 @@ st.markdown("""
 <div style='text-align: center; color: gray;'>
     <p>🧠 Transformer Explorer | 深度学习架构可视化平台</p>
     <p>基于 Manim 动画引擎 & Streamlit 交互框架</p>
-    <p>© 2025 by Just For Dream Lab | 严谨 · 务实 · 深度</p>
+    <p>© 2025 | 严谨 · 务实 · 深度</p>
 </div>
 """, unsafe_allow_html=True)
